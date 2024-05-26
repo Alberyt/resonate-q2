@@ -1,6 +1,12 @@
-import { IContact } from "@/models";
 import { useEffect, useState } from "react";
 
+import { IContact } from "@/models";
+
+/**
+ * 
+ * @returns contacts - list of favourite contacts
+ * @returns loading - loading state
+ */
 const useFetchFavourites = () => {
   const [contacts, setContacts] = useState<IContact[]>([]);     // Raw Data
   const [loading, setLoading] = useState(false);

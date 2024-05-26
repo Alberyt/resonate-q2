@@ -11,7 +11,13 @@ export interface ContactView {
   removeContact: () => void;
 }
 
-const useFetchContact = create<ContactView>()((set, get) => ({
+/**
+ * @return contact - Selected Contact
+ * @return loading - loading state
+ * @return handleContact - Fetches selected contact from server
+ * @return removeContact - remove selected contact
+ */
+const useFetchContact = create<ContactView>()((set) => ({
   contact: null,
   loading: false,
   handleContact: (id: number) => {

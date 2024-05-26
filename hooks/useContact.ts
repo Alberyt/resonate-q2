@@ -1,8 +1,10 @@
-import useFetchContacts from "./useFetchContacts";
-import useFetchContact from "./useFetchContact";
-import useFetchFavourites from "./useFetchFavourites";
+import useFetchContacts from "@/hooks/useFetchContacts";
+import useFetchContact from "@/hooks/useFetchContact";
+import useFetchFavourites from "@/hooks/useFetchFavourites";
 
-
+/**
+ * @returns Collection of methods from useFetchContact, useFetchContacts & useFetchFavourites
+ */
 const useContact = () => {
   const contacts = useFetchContacts();
   const contact = useFetchContact();

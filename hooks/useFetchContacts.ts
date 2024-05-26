@@ -2,6 +2,13 @@ import { useEffect, useMemo, useState } from "react";
 
 import { IContact } from "@/models";
 
+/**
+ * @return handleAlphabet - A method to filter selected character
+ * @return handleSearch - A method to search for contacts
+ * @return query - Searched query 
+ * @return loading - loading state
+ * @return contacts - list of filtered contacts
+ */
 const useFetch = () => {
     const [data, setData] = useState<IContact[]>([]);     // Raw Data
     const [query, setQuery] = useState("");               // Full text search or first letter (^char)
