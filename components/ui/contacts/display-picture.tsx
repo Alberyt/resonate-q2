@@ -5,11 +5,12 @@ import Image from "next/image"
 const variants = {
   small: "h-10 w-10",
   medium: "h-20 w-20",
+  large: "h-30 w-30"
 }
 
 type Picture = {
   contact: IContact;
-  variant?: "small" | "medium",
+  variant?: "small" | "medium" | "large",
 }
 
 const DisplayPicture: React.FC<Picture> = ({contact, variant}) => {
@@ -18,17 +19,13 @@ const DisplayPicture: React.FC<Picture> = ({contact, variant}) => {
 
   return (
     <div className={`${variant ? variants[variant] : variants["small"]} border rounded-full border-gray-400 items-center text-center`}>
-      {contact.picture ?
-        <Image 
-          src={contact.picture}
-          alt={"test"}
-          className={`${variant ? variants[variant] : variants["small"]} bg-fit rounded-full`}
-          height={60}
-          width={60}
-        />  :
-        <p className={`flex ${variant ? variants[variant] : variants["small"]} text-center items-center justify-center`}>{initials}</p>
-        
-      }
+      <Image 
+        src={contact.picture}
+        alt={initials}
+        className={`${variant ? `${variants[variant]} text-5xl` : variants["small"]} bg-fit rounded-full flex text-center items-center justify-center`}
+        height={220}
+        width={220}
+      /> 
     </div>
   )
 }
