@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Live Website: [`Question 2`](https://resonate-q2.vercel.app/).
+
 ## Question 
 ```bash
 Write a responsive “Contacts” application that allows the user to browse their contacts:
