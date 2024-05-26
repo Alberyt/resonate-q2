@@ -27,11 +27,11 @@ const Contact = () => {
                 <h1 className="text-lg font-semibold">{contact.contact.name}</h1>
                 <p className="text-gray-500">Mobile: {contact.contact.mobile}</p>
                 <div className="flex flex-row pt-2 space-y-2 justify-center lg:justify-start">
-                  <section className="flex justify-between w-full md:w-[250px]">
+                  <section className="flex justify-evenly md:justify-between w-full md:w-[250px]">
                     <IconButton symbol={"call"} className="bg-green-400 hover:bg-green-600"/>
                     <IconButton symbol={"message"} className="bg-blue-400 hover:bg-blue-600" />
                     <IconButton symbol={"video"} className="bg-green-400 hover:bg-green-600"/>
-                    <IconButton symbol={"more"} className="bg-orange-400 hover:bg-orange-600"/>
+                    <IconButton symbol={"edit"} className="bg-orange-400 hover:bg-orange-600"/>
                   </section>
                 </div>
               </div>
