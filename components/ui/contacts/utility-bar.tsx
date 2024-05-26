@@ -1,16 +1,30 @@
+import { FaPlus  } from "react-icons/fa";
+import { MdOutlineMoreHoriz } from "react-icons/md";
+
 import { Button } from "../button"
-import { Input } from "../input"
+import SearchBar from "./search-bar";
 
-const UtilityBar = () => {
+type Query = {
+  handleSearch: (query: string) => void;
+}
+
+const UtilityBar: React.FC<Query> = ({handleSearch}) => {
   return (
-    <div className="flex">
+    <div className="flex w-full justify-between items-center pb-4">
       {/* Search Bar */}
-      <Input placeholder="Search" className="rounded-lg"/>
-      {/* Add Contact */}
-      <Button size={"icon"} variant={"outline"}>
-
-      </Button>
-      {/* More Options */}
+      <SearchBar handleSearch={(query) => handleSearch(query)}/>
+      
+      {/* Buttons */}
+      <div className="flex space-x-2 w-1/3">
+        {/* Add Contact */}
+        <Button size={"customIcon"} >
+          <FaPlus size={16} />
+        </Button>
+        <Button size={"customIcon"}>
+          <MdOutlineMoreHoriz size={24} />
+        </Button>
+        {/* More Options */}
+      </div>
     </div>
   )
 }

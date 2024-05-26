@@ -1,9 +1,29 @@
+import { FaSearch } from "react-icons/fa";
+import { Button } from "../button";
 import { Input } from "../input"
 
-const SearchBar = () => {
+type Query = {
+  handleSearch: (query: string) => void;
+}
+
+const SearchBar: React.FC<Query> = ({handleSearch}) => {
   return (
-    <div>
-      <Input placeholder="Search" className="rounded-lg"/>
+    <div className="flex flex-row mr-auto rounded-3xl overflow-hidden w-full">
+      <Input 
+        placeholder="Search" 
+        className="w-3/4"
+        // defaultValue={query}
+        onChange={(e) => handleSearch(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault(); // Prevents the default behavior of the Enter key (e.g., form submission)
+            handleSearch("");
+          }
+        }}  
+      />
+      <Button variant={"outline"} className="p-2 rounded-r-full" aira-label="Search button">
+        <FaSearch size={16} />
+      </Button>
     </div>
   )
 }
