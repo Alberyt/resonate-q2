@@ -1,25 +1,31 @@
-import { IContact } from '@/models';
-import { useState } from 'react'
+"use client"
 
-const useFetchContact = () => {
-  const [contact, setContact] = useState<IContact | null>(null);
-  const [loading, setLoading] = useState(false);
+import { create } from "zustand";
 
-  const handleContact = (id: number) => {
-    setLoading(true)
+import { IContact } from "@/models";
+
+export interface ContactView {
+  contact: IContact | null;
+  loading: boolean;
+  handleContact: (id: number) => void;
+  removeContact: () => void;
+}
+
+const useFetchContact = create<ContactView>()((set, get) => ({
+  contact: null,
+  loading: false,
+  handleContact: (id: number) => {
+    set({ loading: true});
     fetch(`https://my-json-server.typicode.com/alberyt/resonate-q2-server/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setContact(data)
+        set({ contact: data });
       })
-    setLoading(false);
+    set({ loading: false });
+  },
+  removeContact: () => {
+    set({ contact: null })
   }
-
-  return {
-    contact, 
-    handleContact,
-    loading
-  }
-}
+}))
 
 export default useFetchContact
