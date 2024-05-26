@@ -4,11 +4,8 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import UtilityBar from "@/components/ui/contacts/utility-bar"
 import AlphabetHeader from "@/components/ui/contacts/alphabet-header"
 import QuickView from "@/components/ui/contacts/quick-view"
-import useAlphabet from "@/hooks/useAlphabet"
-import AlphabetFilter from "../ui/contacts/alphabet-filter"
-import useContact from "@/hooks/useContact"
-
-import { alphabet } from "../constants"
+import AlphabetFilter from "@/components/ui/contacts/alphabet-filter"
+import { alphabet } from "@/components/constants"
 import { IContact } from "@/models"
 
 type IContacts = {
@@ -31,10 +28,10 @@ const Contacts: React.FC<IContacts> = ({contacts, children}) => {
   }
 
   return (
-    <section className="flex flex-col h-full w-full p-6 bg-gray-300 sm:rounded-3xl">
+    <section className="flex flex-col h-full w-full p-6 bg-gray-300 md:rounded-3xl">
       <UtilityBar handleSearch={(query) => contacts.handleSearch(query)}/>
-      {children}
-      <ScrollArea className="h-[calc(100vh)] w-full">
+        {children}
+      <ScrollArea className="h-full w-full">
         <div className="flex flex-row space-x-2">
           <section className="space-y-3 w-4/5">
             {alphabet.map((character, index) => (
