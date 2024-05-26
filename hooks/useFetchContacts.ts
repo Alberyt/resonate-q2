@@ -12,7 +12,7 @@ import { IContact } from "@/models";
 const useFetch = () => {
     const [data, setData] = useState<IContact[]>([]);     // Raw Data
     const [query, setQuery] = useState("");               // Full text search or first letter (^char)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       setLoading(true)
@@ -20,8 +20,8 @@ const useFetch = () => {
           .then((res) => res.json())
           .then((data) => {
             setData(data)
+            setLoading(false)
           })
-      setLoading(false)
     }, [query, ])
 
     /**
