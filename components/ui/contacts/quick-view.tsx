@@ -1,7 +1,7 @@
 import { IContact } from "@/models"
 
-import DisplayPicture from "./display-picture";
-import IconButton from "../icon-button";
+import DisplayPicture from "@/components/ui/contacts/display-picture";
+import IconButton from "@/components/ui/icon-button";
 import useFetchContact from "@/hooks/useFetchContact";
 
 type View = {
@@ -10,6 +10,13 @@ type View = {
   updateSelected: (id: number) => void;
 }
 
+/**
+ * 
+ * @param {IContact[]} contacts - List of contacts
+ * @param {number} selected - Current selected contact
+ * @param updateSelected - Update current selected contact
+ * @returns Quick view for contacts
+ */
 const QuickView: React.FC<View> = ({contacts, selected, updateSelected}) => {
   const {handleContact} = useFetchContact();
   return (

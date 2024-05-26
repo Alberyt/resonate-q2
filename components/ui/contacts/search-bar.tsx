@@ -1,11 +1,17 @@
 import { FaSearch } from "react-icons/fa";
-import { Button } from "../button";
-import { Input } from "../input"
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input"
 
 type Query = {
   handleSearch: (query: string) => void;
 }
 
+/**
+ * 
+ * @param handleSearch - Function to filter all the contact list.
+ * @returns Search bar for contacts
+ */
 const SearchBar: React.FC<Query> = ({handleSearch}) => {
   return (
     <div className="flex flex-row mr-auto rounded-3xl overflow-hidden w-full">

@@ -1,5 +1,9 @@
 import { Separator } from "./separator"
 
+/**
+ * 
+ * @returns Header to welcome the user
+ */
 const Header = () => {
   return (
     <div className="px-6 bg-gray-300 md:bg-white">

@@ -1,5 +1,10 @@
 import { IContact } from "@/models"
 
+/**
+ * 
+ * @param {IContact} contact - Contact Object 
+ * @returns Additional Details regarding the contact.
+ */
 const Details: React.FC<IContact> = ({mobile, email, website, notes }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full lg:w-1/2">

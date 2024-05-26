@@ -19,6 +19,13 @@ type IContacts = {
   children?: React.ReactNode;
 }
 
+/**
+ * Creates contact list holding; search bar, add contact, filters.
+ * 
+ * @param {Hook} contacts - Hook containing all the necessary methods and data to update list
+ * @param {React.ReactNode} children - Used to add additional components inside utility and contact list.
+ * @returns Self contained contact list.
+ */
 const Contacts: React.FC<IContacts> = ({contacts, children}) => {
   const [ selected, setSelected ] = useState<number | null>(null);        // Get id, not index
 

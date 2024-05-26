@@ -1,14 +1,14 @@
-import { FaPlus  } from "react-icons/fa";
-import { MdOutlineMoreHoriz } from "react-icons/md";
-
-import { Button } from "../button"
-import SearchBar from "./search-bar";
-import IconButton from "../icon-button";
+import IconButton from "@/components/ui/icon-button";
+import SearchBar from "@/components/ui/contacts/search-bar";
 
 type Query = {
   handleSearch: (query: string) => void;
 }
 
+/**
+ * @param handleSearch - Function to filter all the contact list. 
+ * @returns Search bar, add contacts, additional filters.
+ */
 const UtilityBar: React.FC<Query> = ({handleSearch}) => {
   return (
     <div className="flex w-full justify-between items-center pb-4">

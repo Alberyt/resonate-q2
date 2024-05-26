@@ -1,13 +1,16 @@
-
 import { FaArrowLeft } from "react-icons/fa";
-import DisplayPicture from "../ui/contacts/display-picture";
-import IconButton from "../ui/icon-button";
-import { ScrollArea } from "../ui/scroll-area";
-import { Separator } from "../ui/separator";
-import Details from "../ui/contacts/details";
-import { Button } from "../ui/button";
+
+import DisplayPicture from "@/components/ui/contacts/display-picture";
+import IconButton from "@/components/ui/icon-button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import Details from "@/components/ui/contacts/details";
+import { Button } from "@/components/ui/button";
 import useContact from "@/hooks/useContact";
 
+/**
+ * @returns Displays additional information for selected contact. 
+ */
 const Contact = () => {
   const { contact } = useContact();
   return (

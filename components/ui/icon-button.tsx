@@ -12,6 +12,14 @@ type Icon = {
   handleContact?: () => void;
 }
 
+/**
+ * 
+ * @param {string} symbol - Symbol you want to make for button
+ * @param {boolean} displayLabel - Toggle for displaying label
+ * @param {string} className - Updates css
+ * @param handleContact - Updates opened quick view menu
+ * @returns Button with icon and label.
+ */
 const IconButton: React.FC<Icon> = ({symbol, displayLabel = true, className, handleContact}) => {
   const icon = createIcon(symbol)
   return (

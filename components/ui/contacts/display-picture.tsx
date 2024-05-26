@@ -1,7 +1,8 @@
-import { IContact } from "@/models"
 import Image from "next/image"
 
+import { IContact } from "@/models"
 
+// Size Varients
 const variants = {
   small: "h-10 w-10",
   medium: "h-20 w-20",
@@ -13,6 +14,11 @@ type Picture = {
   variant?: "small" | "medium" | "large",
 }
 
+/**
+ * @param contact - Contact Object 
+ * @param variant - Size of display picture
+ * @returns Avatar of user
+ */
 const DisplayPicture: React.FC<Picture> = ({contact, variant}) => {
   const name = contact.name.split(" ");
   const initials = name[0][0] + name[1][0];
