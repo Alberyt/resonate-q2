@@ -18,7 +18,7 @@ const UtilityBar: React.FC<Query> = ({handleSearch}) => {
       {/* Buttons */}
       <div className="flex space-x-2 w-1/3">
         {/* Add Contact */}
-        <IconButton symbol={"plus"} displayLabel={false}/>
+        <IconButton symbol={"plus"} displayLabel={false} />
         <IconButton symbol={"more"} displayLabel={false}/>
         {/* More Options */}
       </div>
