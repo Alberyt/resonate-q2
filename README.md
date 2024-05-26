@@ -1,4 +1,13 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Question 
+```bash
+Write a responsive “Contacts” application that allows the user to browse their contacts:
+•	Make use of https://jsonplaceholder.typicode.com/ (/users are the contacts)
+•	Use either VueJS, Angular or React
+•	Make it visually appealing
+•	No need to implement Create/Update/Delete
+•	Provide instructions on how to run the code
+```
 
 ## Getting Started
 
