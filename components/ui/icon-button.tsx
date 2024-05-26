@@ -2,8 +2,8 @@ import { FaPhone, FaPlus, FaQuestion } from "react-icons/fa";
 import { MdMessage, MdMoreHoriz, MdVideoCall } from "react-icons/md";
 
 import { cn } from "@/lib/utils";
-
-import { Button } from "./button"
+import { Button } from "@/components/ui/button"
+import Placeholder from "@/components/ui/placeholder";
 
 type Icon = {
   symbol: string,
@@ -25,9 +25,12 @@ const IconButton: React.FC<Icon> = ({symbol, displayLabel = true, className, han
   return (
     <>
       <div className="flex flex-col space-y-2 items-center">
-        <Button size={"customIcon"} className={cn("", className)} onClick={handleContact}>
-          {icon}
-        </Button>
+          <div className={cn("h-8 w-8 rounded-full inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90", className)} 
+            onClick={handleContact}>
+            <Placeholder>
+              {icon}
+            </Placeholder>
+          </div>
         { displayLabel && <h1 className="text-xs capitalize">{symbol}</h1> }
       </div>
     </>
