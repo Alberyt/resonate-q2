@@ -1,24 +1,26 @@
-import { FaPhone, FaQuestion } from "react-icons/fa";
-import { MdMessage, MdMore, MdVideoCall } from "react-icons/md";
+import { FaPhone, FaPlus, FaQuestion } from "react-icons/fa";
+import { MdMessage, MdMoreHoriz, MdVideoCall } from "react-icons/md";
 
 import { cn } from "@/lib/utils";
 
 import { Button } from "./button"
 
 type Icon = {
-  symbol: string
+  symbol: string,
+  displayLabel?: boolean,
   className?: string
+  handleContact?: () => void;
 }
 
-const IconButton: React.FC<Icon> = ({symbol, className}) => {
+const IconButton: React.FC<Icon> = ({symbol, displayLabel = true, className, handleContact}) => {
   const icon = createIcon(symbol)
   return (
     <>
       <div className="flex flex-col space-y-2 items-center">
-        <Button size={"customIcon"} className={cn("bg-green-400 hover:bg-green-600", className)}>
+        <Button size={"customIcon"} className={cn("", className)} onClick={handleContact}>
           {icon}
         </Button>
-        <h1 className="text-xs capitalize">{symbol}</h1>
+        { displayLabel && <h1 className="text-xs capitalize">{symbol}</h1> }
       </div>
     </>
   )
@@ -34,7 +36,11 @@ const createIcon = (symbol: string) => {
     case "video":
       return <MdVideoCall {...options} />
     case "more":
-      return <MdMore {...options} />
+      return <MdMoreHoriz {...options} />
+    case "edit":
+      return <MdMoreHoriz {...options} />
+    case "plus":
+      return <FaPlus {...options} />  
     default:
       return <FaQuestion {...options}/>
   }
