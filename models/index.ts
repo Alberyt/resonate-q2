@@ -3,6 +3,7 @@ export interface IContact {
   name: string,
   mobile: string,
   email: string,
+  picture: string,
   website: string,
   notes: string,
   favourite: boolean,
