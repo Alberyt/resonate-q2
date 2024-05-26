@@ -7,6 +7,7 @@ import QuickView from "@/components/ui/contacts/quick-view"
 import AlphabetFilter from "@/components/ui/contacts/alphabet-filter"
 import { alphabet } from "@/components/constants"
 import { IContact } from "@/models"
+import Loading from "../ui/loading"
 
 type IContacts = {
   contacts: {
@@ -44,6 +45,7 @@ const Contacts: React.FC<IContacts> = ({contacts, children}) => {
             {alphabet.map((character, index) => (
               <div key={index} className="space-y-3">
                 <AlphabetHeader character={character}/>
+                {contacts.loading && <Loading />}
                 <QuickView contacts={contacts.contacts.get(character)} selected={selected} updateSelected={(id) => handleSelected(id)}/>
               </div>
             ))}
