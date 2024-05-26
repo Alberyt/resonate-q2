@@ -9,7 +9,7 @@ import { IContact } from "@/models";
  */
 const useFetchFavourites = () => {
   const [contacts, setContacts] = useState<IContact[]>([]);     // Raw Data
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true)
@@ -17,8 +17,8 @@ const useFetchFavourites = () => {
         .then((res) => res.json())
         .then((data) => {
           setContacts(data)
+          setLoading(false)
         })
-    setLoading(false)
   }, [])
 
   return {
