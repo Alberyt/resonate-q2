@@ -8,10 +8,21 @@ import useAlphabet from "@/hooks/useAlphabet"
 import AlphabetFilter from "../ui/contacts/alphabet-filter"
 import useContact from "@/hooks/useContact"
 
+import { alphabet } from "../constants"
+import { IContact } from "@/models"
 
-const Contacts = () => {
-  const { alphabet } = useAlphabet(); 
-  const { contacts } = useContact();
+type IContacts = {
+  contacts: {
+    handleAlphabet: (character: string) => void;
+    handleSearch: (query: string) => void;
+    query: string;
+    loading: boolean;
+    contacts: Map<string, IContact[]>;
+  },
+  children?: React.ReactNode;
+}
+
+const Contacts: React.FC<IContacts> = ({contacts, children}) => {
   const [ selected, setSelected ] = useState<number | null>(null);        // Get id, not index
 
   const handleSelected = (id: number) => {
@@ -22,6 +33,7 @@ const Contacts = () => {
   return (
     <section className="flex flex-col h-full w-full p-6 bg-gray-300 sm:rounded-3xl">
       <UtilityBar handleSearch={(query) => contacts.handleSearch(query)}/>
+      {children}
       <ScrollArea className="h-[calc(100vh)] w-full">
         <div className="flex flex-row space-x-2">
           <section className="space-y-3 w-4/5">
