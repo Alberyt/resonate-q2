@@ -1,20 +1,32 @@
 import { IContact } from "@/models"
 import Image from "next/image"
 
-const DisplayPicture: React.FC<IContact> = ({name, picture}) => {
-  const initials = name.split(" ")[0][0] + name.split(" ")[1][0]
+
+const variants = {
+  small: "h-10 w-10",
+  medium: "h-20 w-20",
+}
+
+type Picture = {
+  contact: IContact;
+  variant?: "small" | "medium",
+}
+
+const DisplayPicture: React.FC<Picture> = ({contact, variant}) => {
+  const name = contact.name.split(" ");
+  const initials = name[0][0] + name[1][0];
 
   return (
-    <div className="h-8 w-8 rounded-full border border-white items-center text-center">
-      {picture ?
+    <div className={`${variant ? variants[variant] : variants["small"]} border rounded-full border-gray-400 items-center text-center`}>
+      {contact.picture ?
         <Image 
-          src={picture}
+          src={contact.picture}
           alt={"test"}
-          className="h-8 w-8 bg-fit rounded-full border"
-          height={30}
-          width={30}
+          className={`${variant ? variants[variant] : variants["small"]} bg-fit rounded-full`}
+          height={60}
+          width={60}
         />  :
-        <p className="flex h-8 w-8 text-center items-center justify-center">{initials}</p>
+        <p className={`flex ${variant ? variants[variant] : variants["small"]} text-center items-center justify-center`}>{initials}</p>
         
       }
     </div>
