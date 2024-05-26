@@ -3,6 +3,7 @@ import { MdOutlineMoreHoriz } from "react-icons/md";
 
 import { Button } from "../button"
 import SearchBar from "./search-bar";
+import IconButton from "../icon-button";
 
 type Query = {
   handleSearch: (query: string) => void;
@@ -17,12 +18,8 @@ const UtilityBar: React.FC<Query> = ({handleSearch}) => {
       {/* Buttons */}
       <div className="flex space-x-2 w-1/3">
         {/* Add Contact */}
-        <Button size={"customIcon"} >
-          <FaPlus size={16} />
-        </Button>
-        <Button size={"customIcon"}>
-          <MdOutlineMoreHoriz size={24} />
-        </Button>
+        <IconButton symbol={"plus"} displayLabel={false}/>
+        <IconButton symbol={"more"} displayLabel={false}/>
         {/* More Options */}
       </div>
     </div>
