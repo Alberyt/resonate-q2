@@ -15,9 +15,9 @@ const QuickView: React.FC<View> = ({contacts, selected, updateSelected}) => {
       {contacts && 
         <div className="flex flex-col rounded-lg w-full min-h-fit py-2 space-y-2">
           {contacts?.map((contact, index) => (
-            <div key={index} className={`ml-2 mx-auto items-center ${contacts.length - 1 !== index && "pb-2"}`}>
+            <div key={index} className={`ml-2 mx-auto items-center ${contacts.length - 1 !== index && "pb-2"} w-full`}>
               <div tabIndex={0} className={`flex items-center space-x-4 hover:cursor-pointer`} onClick={() => updateSelected(contact.id)}>
-                <DisplayPicture {...contact}/>
+                <DisplayPicture contact={contact}/>
                 <div className="flex flex-col">
                   <h1 className="truncate overflow-hidden">{contact.name}</h1>
                   {selected === contact.id && <p className="font-light text-xs flex justify-center">Mobile: {contact.mobile}</p>}
@@ -25,7 +25,7 @@ const QuickView: React.FC<View> = ({contacts, selected, updateSelected}) => {
               </div>
               {selected === contact.id && (
                 <div className="pt-2 space-y-2">
-                  <section className="flex justify-evenly">
+                  <section className="flex justify-between w-5/6">
                     <IconButton symbol={"call"} />
                     <IconButton symbol={"message"} className="bg-blue-400 hover:bg-blue-600" />
                     <IconButton symbol={"video"} />
