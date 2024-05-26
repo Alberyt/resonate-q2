@@ -38,7 +38,7 @@ const QuickView: React.FC<View> = ({contacts, selected, updateSelected}) => {
                     <IconButton symbol={"call"} className="bg-green-400 hover:bg-green-600"/>
                     <IconButton symbol={"message"} className="bg-blue-400 hover:bg-blue-600" />
                     <IconButton symbol={"video"} className="bg-green-400 hover:bg-green-600"/>
-                    <IconButton symbol={"more"} className="bg-orange-400 hover:bg-orange-600" handleContact={() => handleContact(contact.id)}/>
+                    <IconButton symbol={"view"} className="bg-orange-400 hover:bg-orange-600" handleContact={() => handleContact(contact.id)}/>
                   </section>
                 </div>
               )}
