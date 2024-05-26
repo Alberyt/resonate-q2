@@ -18,7 +18,7 @@ const IconButton: React.FC<Icon> = ({symbol, className}) => {
         <Button size={"customIcon"} className={cn("bg-green-400 hover:bg-green-600", className)}>
           {icon}
         </Button>
-        <h1 className="text-xs font-extralight">{symbol}</h1>
+        <h1 className="text-xs capitalize">{symbol}</h1>
       </div>
     </>
   )
